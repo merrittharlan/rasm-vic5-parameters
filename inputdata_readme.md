@@ -3,14 +3,20 @@
 Required data inputs and their categories: 
 
 1. __Soils data__: obtained from the ISRIC Global 1km soils data, http://isric.org/explore/soilgrids. Links below are for the 1km product, can also use 250m if higher resolution is desired, or coarser resolution (5km, 10km, etc). Relevant citation: Hengl T, de Jesus JM, MacMillan RA, Batjes NH, Heuvelink GBM, et al. (2014) SoilGrids1km - Global Soil Information Based on Automated Mapping. PLoS ONE 9(8):e105992. doi:10.1371/journal.pone.0105992
-	1. organic matter: ftp://ftp.soilgrids.org/data/recent/OCSTHA_M_sd1_1km.tif (download for all 7 layers, e.g. sd1-7)
-	2. coarse content: ftp://ftp.soilgrids.org/data/aggregated/1km/CRFVOL_M_sl1_1km_ll.tif (download for all 7 layers, e.g. sl1-7)
-	3. silt content: ftp://ftp.soilgrids.org/data/aggregated/1km/SLTPPT_M_sl1_1km_ll.tif (download for all 7 layers, e.g. sl1-7)
-	4. sand content: tp://ftp.soilgrids.org/data/aggregated/1km/SNDPPT_M_sl1_1km_ll.tif (download for all 7 layers, e.g. sl1-7)
-	5. clay content: ftp://ftp.soilgrids.org/data/aggregated/1km/CLYPPT_M_sl1_1km_ll.tif (download for all 7 layers, e.g. sl1-7)
-	6. bulk density: ftp://ftp.soilgrids.org/data/aggregated/1km/BLDFIE_M_sl1_1km_ll.tif (download for all 7 layers, e.g. sl1-7)
+
+https://data.isric.org/geonetwork/srv/eng/catalog.search#/search?facet.q=publishDateYear%2F2017&resultType=details&sortBy=relevance&from=1&to=20&fast=index&_content_type=json&any=soilgrids250m
+
+	1. organic matter: (download for all 7 layers, e.g. sd1-7)
+	2. coarse content:  (download for all 7 layers, e.g. sl1-7)
+	3. silt content: (download for all 7 layers, e.g. sl1-7)
+	4. sand content:  (download for all 7 layers, e.g. sl1-7)
+	5. clay content: (download for all 7 layers, e.g. sl1-7)
+	6. bulk density: (download for all 7 layers, e.g. sl1-7)
 2. __LAI and Vegetation Height__: 0.05-degree global product obtained from Peter Lawrence and Dave Lawrence at the Climate and Global Dynamics group, National Center for Atmospheric Research.
+https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rawdata/pftcftlandusedynharv.0.25x0.25.MODIS.simyr1850-2015.c170412/
 3. __Vegetation Classes__ (Plant Functional Types used in CLM): same source as for LAI and Vegetation Height, 0.05-degree global product
+http://www.atmo.arizona.edu/~brunke/
+
 4. __Elevation data__: 
 	1. GTOPO 0.05-deg elevation map, available through Oak Ridge National Lab (required EarthData registration for download): https://webmap.ornl.gov/ogc/dataset.jsp?dg_id=10003_1
 5. __Climatological Temperature and Precipitation__: 
