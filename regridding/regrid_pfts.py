@@ -1,5 +1,5 @@
 #!/bin/env python 
-
+#change cfg file to include_withcoords at end
 import configparser
 import os
 from cdo import *
@@ -16,15 +16,15 @@ outdir = config['Parameter Specs']['output_dir']
 
 filename = os.path.join(config['PFTs']['dir'],
                         config['PFTs']['filename'])
+print(filename)
 		
 # crop file
 crop_file = os.path.join(outdir, 'cropped_pfts.nc')
 cdo.sellonlatbox("-180,180,15,90", input="-selname,PCT_PFT %s" %filename, output=crop_file)
-
 # regrid file
 tmp1 = os.path.join(outdir, 'mksrf_landuse_rc2000_c110913_tmp.nc')
 tmp2 = os.path.join(outdir, 'mksrf_landuse_rc2000_c110913_%s_tmp.nc' %grid)
-regrid_file = os.path.join(outdir, 'mksrf_landuse_rc2000_c110913_mod_fillval_%s.nc' %grid)
+regrid_file = os.path.join(outdir, 'mksrf_landuse_rc2000_c110913_%s.nc' %grid)
 
 # set fillvalues to missing values to avoid incorrect remapping of coastal gridcells, 
 # solution adapted from https://code.mpimet.mpg.de/boards/2/topics/6172?r=6199

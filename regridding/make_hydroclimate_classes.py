@@ -1,3 +1,4 @@
+#Get rid of encoding, otherwise stays the same
 #!/bin/env python 
 
 import os
@@ -73,83 +74,64 @@ masks = xr.Dataset()
 
 masks['mask_land'] = xr.DataArray(mask_vals,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "land mask", 
-                                          'units': "N/A", 'long_name': "gridcells that are land"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "gridcells that are land",
+					  "Coordinates": "xc yc"})
 
 masks['arid'] = xr.DataArray(arid,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "arid mask", 
-                                          'units': "N/A", 'long_name': "arid mask"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "arid mask","Coordinates": "xc yc"})
 
 masks['temperate_dry'] = xr.DataArray(temp_dry,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "temperate/dry mask", 
-                                          'units': "N/A", 'long_name': "arid mask"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "arid mask","Coordinates": "xc yc"})
 
 masks['cold_dry_perma'] = xr.DataArray(cold_dry_perma,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "cold/dry perma", 
-                                          'units': "N/A", 'long_name': "cold and dry with permafrost"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "cold and dry with permafrost", "Coordinates": "xc yc"})
 
 masks['cold_dry_noperma'] = xr.DataArray(cold_dry_noperma,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "cold/dry no perma", 
-                                          'units': "N/A", 'long_name': "cold and dry no permafrost"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "cold and dry no permafrost", "Coordinates": "xc yc"})
 
 masks['cold_wds_ws_perma'] = xr.DataArray(cold_dry_nodry1_perma,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "cold/wds/ws perma", 
-                                          'units': "N/A", 'long_name': "Cold/Without Dry Season/Warm Summers with permafrost"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "Cold/Without Dry Season/Warm Summers with permafrost","Coordinates": "xc yc"})
 
 masks['cold_wds_ws_noperma'] = xr.DataArray(cold_dry_nodry1_noperma,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "cold/wds/ws no perma", 
-                                          'units': "N/A", 'long_name': "Cold/Without Dry Season/Warm Summers no permafrost"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "Cold/Without Dry Season/Warm Summers no permafrost","Coordinates": "xc yc"})
 
 masks['cold_wds_cs_perma'] = xr.DataArray(cold_dry_nodry2_perma,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "cold/wds/cs perma", 
-                                          'units': "N/A", 'long_name': "Cold/Without Dry Season/Cold Summers with permafrost"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "Cold/Without Dry Season/Cold Summers with permafrost","Coordinates": "xc yc"})
 
 masks['cold_wds_cs_noperma'] = xr.DataArray(cold_dry_nodry2_noperma,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "cold/wds/cs no perma", 
-                                          'units': "N/A", 'long_name': "Cold/Without Dry Season/Cold Summers no permafrost"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "Cold/Without Dry Season/Cold Summers no permafrost", "Coordinates": "xc yc"})
 
 masks['polar'] = xr.DataArray(polar,
                                    dims=('nj', 'ni'),
-                                   coords={'xc': domain.xc, 'yc': domain.yc},
+                                   coords={'xc': ('nj', domain.lat), 'yc': ('ni', domain.lon)},
                                    attrs={'description': "polar mask", 
-                                          'units': "N/A", 'long_name': "polar"},
-                                   encoding={"_FillValue": fillval_i,
-                                               "Coordinates": "xc yc", 'dtype': 'int32'})
+                                          'units': "N/A", 'long_name': "polar","Coordinates": "xc yc"})
 
 # write hydroclimate classes to NetCDF file 
 encoding_masks = {'mask_land': {'dtype': 'int32', "_FillValue": fillval_i},
@@ -164,3 +146,4 @@ encoding_masks = {'mask_land': {'dtype': 'int32', "_FillValue": fillval_i},
                    'polar': {'dtype': 'int32', "_FillValue": fillval_i}}
 new_params_file = os.path.join(outdir, 'hydroclimate_masks_%s.nc' %grid)
 masks.to_netcdf(new_params_file, format='NETCDF4_CLASSIC', encoding=encoding_masks)
+

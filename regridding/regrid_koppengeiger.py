@@ -22,9 +22,9 @@ crop_file = os.path.join(outdir, 'cropped_koppengeiger.nc')
 cdo.sellonlatbox("-180,180,15,90", input="-selname,Band1 %s" %filename, output=crop_file)
 
 # regrid file
-tmp1 = os.path.join(outdir, 'sdat_10012_1_20180605_141737329_tmp.nc')
-tmp2 = os.path.join(outdir, 'sdat_10012_1_20180605_141737329_%s_tmp.nc' %grid)
-regrid_file = os.path.join(outdir, 'sdat_10012_1_20180605_141737329_%s.nc' %grid)
+tmp1 = os.path.join(outdir, 'sdat_10012_1_20200927_141615624_tmp.nc')
+tmp2 = os.path.join(outdir, 'sdat_10012_1_20200927_141615624_%s_tmp.nc' %grid)
+regrid_file = os.path.join(outdir, 'sdat_10012_1_20200927_141615624_%s.nc' %grid)
 
 # set fillvalues to missing values to avoid incorrect remapping of coastal gridcells, 
 # solution adapted from https://code.mpimet.mpg.de/boards/2/topics/6172?r=6199

@@ -23,7 +23,7 @@ crop_file = os.path.join(outdir, 'cropped_dem.nc')
 cdo.sellonlatbox("-180,180,16.5,90", input="-selname,Band1 %s" %filename, output=crop_file)
 
 # regrid file
-regrid_file = os.path.join(outdir, 'sdat_10003_1_20180525_151136146_%s.nc' %grid)
+regrid_file = os.path.join(outdir, 'sdat_10003_1_20200927_130656301_%s.nc' %grid)
 
 # remap both land and ocean gridcells so that coastal gridcells are assigned valid values
 cdo.remapnn(domain, input=crop_file, output=regrid_file)

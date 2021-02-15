@@ -1,5 +1,5 @@
 #!/bin/env python 
-
+#add _withcoords to cfg file
 import configparser
 import os
 from cdo import *
